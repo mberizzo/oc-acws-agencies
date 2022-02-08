@@ -1,8 +1,8 @@
 <?php namespace Mberizzo\Acwslocation\Components;
 
 use Cms\Classes\ComponentBase;
-use GuzzleHttp\Client;
-use Mberizzo\Acwslocation\Models\Settings;
+use Illuminate\Support\Facades\App;
+use Mberizzo\Acwslocation\Classes\WSLocationList;
 
 class LocationList extends ComponentBase
 {
@@ -17,22 +17,8 @@ class LocationList extends ComponentBase
 
     public function onRun()
     {
-        $client = new Client;
+        $list = App::call(new WSLocationList());
 
-        $response = $client->request('GET', Settings::get('api_url'), [
-            'headers' => [
-                'Accept' => 'application/json',
-                'Content-Type' => 'application/json',
-                'Authorization' => Settings::get('api_token'),
-            ],
-        ]);
-
-        $locations = ['data' => []];
-
-        if ($response->getStatusCode() === 200) {
-            $locations = json_decode($response->getBody()->getContents(), true);
-        }
-
-        $this->page['locationList'] = $locations['data'];
+        $this->page['locationList'] = $list['data'];
     }
 }
