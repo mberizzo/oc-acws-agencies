@@ -1,0 +1,6 @@
+plugin:
+    name: 'mberizzo.acwslocation::lang.plugin.name'
+    description: 'mberizzo.acwslocation::lang.plugin.description'
+    author: mberizzo
+    icon: oc-icon-map-marker
+    homepage: ''

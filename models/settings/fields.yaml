@@ -1,0 +1,11 @@
+fields:
+    api_url:
+        span: left
+        label: API URL
+        required: true
+        comment: "ie: https://myapi.com?filter=123"
+    api_token:
+        span: right
+        label: API Token
+        required: true
+        comment: "ie: Bearer 1230912u30192j301"
