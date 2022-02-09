@@ -1,6 +1,6 @@
 <?php return [
     'plugin' => [
-        'name' => 'AC WS Location',
+        'name' => 'AC WS Agencies',
         'description' => ''
     ]
 ];

@@ -1,11 +1,11 @@
 <?php
 
-namespace Mberizzo\Acwslocation\Classes;
+namespace Mberizzo\Acwsagencies\Classes;
 
 use GuzzleHttp\Client;
-use Mberizzo\Acwslocation\Models\Settings;
+use Mberizzo\Acwsagencies\Models\Settings;
 
-class WSLocationList
+class WSAgencyList
 {
 
     public function __invoke(Client $client, Settings $settings)
