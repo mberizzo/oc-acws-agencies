@@ -19,6 +19,6 @@ class LocationList extends ComponentBase
     {
         $list = App::call(new WSLocationList());
 
-        $this->page['locationList'] = $list['data'];
+        $this->page['locationList'] = $list;
     }
 }
