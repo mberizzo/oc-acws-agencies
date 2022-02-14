@@ -17,7 +17,7 @@ class AgencyList extends ComponentBase
 
     public function onRun()
     {
-        $list = App::call(new WSAgencyList());
+        $list = App::make(WSAgencyList::class)();
 
         $this->page['agencyList'] = $list;
     }

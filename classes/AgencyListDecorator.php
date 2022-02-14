@@ -7,7 +7,7 @@ class AgencyListDecorator
 
     private $list;
 
-    public function __construct($list)
+    public function __construct(array $list)
     {
         $this->list = $list;
     }

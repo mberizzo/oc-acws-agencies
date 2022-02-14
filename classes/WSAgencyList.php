@@ -9,13 +9,22 @@ use Mberizzo\Acwsagencies\Models\Settings;
 class WSAgencyList
 {
 
-    public function __invoke(Client $client, Settings $settings)
+    private $settings;
+    private $client;
+
+    public function __construct(Settings $settings, Client $client)
     {
-        $response = $client->request('GET', $settings->get('api_url'), [
+        $this->settings = $settings;
+        $this->client = $client;
+    }
+
+    public function __invoke()
+    {
+        $response = $this->client->request('GET', $this->settings->get('api_url'), [
             'headers' => [
                 'Accept' => 'application/json',
                 'Content-Type' => 'application/json',
-                'Authorization' => $settings->get('api_token'),
+                'Authorization' => $this->settings->get('api_token'),
             ],
         ]);
 
@@ -25,6 +34,6 @@ class WSAgencyList
             $list = json_decode($response->getBody()->getContents(), true);
         }
 
-        return App::call(new AgencyListDecorator($list['data']));
+        return (new AgencyListDecorator($list['data']))();
     }
 }
