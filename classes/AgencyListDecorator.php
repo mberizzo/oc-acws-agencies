@@ -24,6 +24,7 @@ class AgencyListDecorator
                 'link_facebook' => data_get($agency, 'facebook'),
                 'address' => $this->address($agency),
                 'phone' => data_get($agency, 'telefonoCelular2'),
+                'horariosAtencion' => data_get($agency, 'horariosAtencion'),
             ];
         })->reject(function ($agency) {
             return empty($agency['lat']) || empty($agency['lng']);
